@@ -1,0 +1,10 @@
+.card {
+  background-color: rgb(42, 2, 2);
+  height: 490px;
+  display: flex;
+  padding: 15px 70px;
+}
+
+h3 {
+  color: bisque;
+}
