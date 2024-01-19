@@ -6,44 +6,48 @@ import PackingList from "./components/PackingList";
 import Stats from "./components/Stats";
 
 function App() {
-  const [itemObject, setItemObject] = useState([
+  const [items, setItems] = useState([
     {
       Quantity: 1,
       Item: "Charger",
+      isItemPacked: false,
     },
   ]);
-  const [packedItems, setPackedItems] = useState(
-    Array(itemObject.length).fill(false)
-  );
 
-  const addItemToItemObject = (newItem) => {
-    setItemObject([...itemObject, newItem]);
-    setPackedItems([...packedItems, false]);
+  const handleAddItem = (newItem) => {
+    setItems([...items, newItem]);
   };
 
   const deleteItem = (index) => {
-    const updatedItemObject = [...itemObject];
-    updatedItemObject.splice(index, 1);
-    setItemObject(updatedItemObject);
+    const updatedItems = [...items];
+    updatedItems.splice(index, 1);
+    setItems(updatedItems);
   };
 
-  const handlePackingChange = (index) => {
-    const updatedPackedItems = [...packedItems];
-    updatedPackedItems[index] = !updatedPackedItems[index];
-    setPackedItems(updatedPackedItems);
+  const itemsCount = items.length;
+  let packedItemsCount = 0;
+
+  const handlePackingStateChange = (index) => {
+    const updatedItems = [...items];
+    const packedItem = updatedItems[index];
+    packedItem.isItemPacked = !packedItem.isItemPacked;
+    for (let i = 0; i < items.length; i++) {
+      if (items.isItemPacked) packedItemsCount++;
+    }
+    console.log(packedItemsCount);
+    setItems(updatedItems);
   };
 
   return (
     <div className="container">
       <Header />
-      <FormSection addItemToItemObject={addItemToItemObject} />
+      <FormSection handleAddItem={handleAddItem} />
       <PackingList
-        itemObject={itemObject}
-        packedItems={packedItems}
+        items={items}
         deleteItem={deleteItem}
-        handlePackingChange={handlePackingChange}
+        handlePackingStateChange={handlePackingStateChange}
       />
-      <Stats itemObject={itemObject} packedItems={packedItems} />
+      <Stats itemsCount={itemsCount} packedItemsCount={packedItemsCount} />
     </div>
   );
 }

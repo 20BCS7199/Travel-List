@@ -2,7 +2,7 @@
 import { useState } from "react";
 import classes from "./FormSection.module.css";
 
-const FormSection = ({ addItemToItemObject }) => {
+const FormSection = ({ handleAddItem }) => {
   const [quantity, setQuantity] = useState(1);
   const [itemInput, setItemInput] = useState("");
 
@@ -11,7 +11,11 @@ const FormSection = ({ addItemToItemObject }) => {
       Quantity: quantity,
       Item: itemInput,
     };
-    addItemToItemObject(newItem);
+    handleAddItem(newItem);
+    reset();
+  };
+
+  const reset = () => {
     setQuantity(1);
     setItemInput("");
   };
@@ -20,7 +24,7 @@ const FormSection = ({ addItemToItemObject }) => {
     <div className={classes.form}>
       <p className={classes.title}>What do you need for your 😍 trip?</p>
       <select
-        className={classes.selector}
+        className={classes.itemCountContainer}
         value={quantity}
         onChange={(e) => setQuantity(e.target.value)}
       >

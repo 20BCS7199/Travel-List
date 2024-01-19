@@ -1,10 +1,10 @@
 import classes from "./Stats.module.css";
-const Stats = ({ itemObject }) => {
+const Stats = ({ itemsCount, packedItemsCount }) => {
   return (
     <div className={classes.container}>
       <p>
-        💼 You have {itemObject.length} items in your list, and you already
-        packed 0 (0%)
+        💼 You have {itemsCount} items in your list, and you already packed{" "}
+        {packedItemsCount} ({(itemsCount / packedItemsCount) * 100}%)
       </p>
     </div>
   );
