@@ -1,10 +1,35 @@
-.card {
+.container {
   background-color: rgb(42, 2, 2);
-  height: 490px;
+  flex: 1;
+  padding: 30px 100px;
+}
+
+.card {
   display: flex;
-  padding: 15px 70px;
+  gap: 50px;
+}
+
+.cardlabel {
+  display: flex;
+}
+
+.cardcontent {
+  padding-left: 15px;
+  display: flex;
+}
+
+.checkbox {
+  transform: scale(1.5);
 }
 
 h3 {
   color: bisque;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-right: 10px;
+}
+
+.cross {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

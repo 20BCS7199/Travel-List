@@ -1,20 +1,31 @@
+// FormSection.jsx
 import { useState } from "react";
 import classes from "./FormSection.module.css";
 
-const FormSection = () => {
+const FormSection = ({ addItemToItemObject }) => {
   const [quantity, setQuantity] = useState(1);
   const [itemInput, setItemInput] = useState("");
+
+  const addItem = () => {
+    const newItem = {
+      Quantity: quantity,
+      Item: itemInput,
+    };
+    addItemToItemObject(newItem);
+    setQuantity(1);
+    setItemInput("");
+  };
 
   return (
     <div className={classes.form}>
       <p className={classes.title}>What do you need for your 😍 trip?</p>
-      <select className={classes.selector}>
+      <select
+        className={classes.selector}
+        value={quantity}
+        onChange={(e) => setQuantity(e.target.value)}
+      >
         {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-          <option
-            key={num}
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          >
+          <option key={num} value={num}>
             {num}
           </option>
         ))}
@@ -26,7 +37,9 @@ const FormSection = () => {
         className={classes.itemInput}
         onChange={(e) => setItemInput(e.target.value)}
       />
-      <button className={classes.addButton}>Add</button>
+      <button className={classes.addButton} onClick={addItem}>
+        Add
+      </button>
     </div>
   );
 };
