@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "./App.css";
+import _ from "lodash";
+import { useState } from "react";
 import FormSection from "./components/FormSection";
 import Header from "./components/Header";
 import PackingList from "./components/PackingList";
@@ -16,7 +17,7 @@ function App() {
   };
 
   const handleDeleteItem = (id) => {
-    const index = items[id];
+    const index = _.findIndex(items, { id });
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);

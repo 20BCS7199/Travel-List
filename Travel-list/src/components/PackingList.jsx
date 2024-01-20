@@ -41,7 +41,7 @@ const PackingList = ({
               </h3>
               <button
                 className={classes.cross}
-                onClick={() => handleDeleteItem(index)}
+                onClick={() => handleDeleteItem(item.id)}
               >
                 ❌
               </button>
