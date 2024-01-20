@@ -1,7 +1,12 @@
 import { useState } from "react";
 import classes from "./PackingList.module.css";
 
-const PackingList = ({ items, handleDeleteItem, handlePackingStateChange }) => {
+const PackingList = ({
+  items,
+  handleDeleteItem,
+  handlePackingStateChange,
+  handleClearList,
+}) => {
   return (
     <div className={classes.container}>
       <div className={classes.card}>
@@ -14,7 +19,11 @@ const PackingList = ({ items, handleDeleteItem, handlePackingStateChange }) => {
               className={classes.checkbox}
             />
             <div className={classes.cardcontent}>
-              <h3>
+              <h3
+                style={{
+                  textDecoration: item.isItemPacked ? "line-through" : "none",
+                }}
+              >
                 {item.quantity} {item.item}
               </h3>
               <button
@@ -26,6 +35,16 @@ const PackingList = ({ items, handleDeleteItem, handlePackingStateChange }) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className={classes.filterContainer}>
+        <select className={classes.filter}>
+          <option>SORT BY INPUT ORDER</option>
+          <option>SORT BY PACKED STATUS</option>
+          <option>SORT BY DESCRIPTION</option>
+        </select>
+        <button className={classes.clearButton} onClick={handleClearList}>
+          CLEAR LIST
+        </button>
       </div>
     </div>
   );

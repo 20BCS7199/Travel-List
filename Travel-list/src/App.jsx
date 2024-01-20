@@ -42,6 +42,15 @@ function App() {
     setItems(updatedItems);
   };
 
+  const handleClearList = () => {
+    const shouldClearList = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+    if (shouldClearList) {
+      setItems([]);
+    }
+  };
+
   return (
     <div className="container">
       <Header />
@@ -50,6 +59,7 @@ function App() {
         items={items}
         handleDeleteItem={handleDeleteItem}
         handlePackingStateChange={handlePackingStateChange}
+        handleClearList={handleClearList}
       />
       <Stats itemsCount={itemsCount} packedItemsCount={totalPackedItemsCount} />
     </div>
