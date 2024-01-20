@@ -1,7 +1,8 @@
 .container {
   text-align: center;
   background-color: #59b893;
-  color: brown;
+  color: #3b281c;
+  font-style: italic;
   padding: 21px;
   font-weight: bold;
 }
