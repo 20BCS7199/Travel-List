@@ -4,7 +4,7 @@
   align-items: center;
   gap: 8px;
   padding: 14px;
-  background-color: rgba(210, 105, 30, 0.847);
+  background-color: #d65717;
 }
 
 .title {
@@ -31,7 +31,7 @@
 }
 
 .addButton {
-  background-color: aquamarine;
+  background-color: #59b893;
   border: none;
   padding: 7px;
   border-radius: 20px;
