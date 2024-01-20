@@ -6,7 +6,20 @@ const PackingList = ({
   handleDeleteItem,
   handlePackingStateChange,
   handleClearList,
+  handleSortItemsByPackedStatus,
+  handleSortItemsByQuantity,
+  handleSortItemsByInputOrder,
 }) => {
+  const handleChangeSort = (event) => {
+    const selectedSortOption = event.target.value;
+    if (selectedSortOption === "SORT BY PACKED STATUS") {
+      handleSortItemsByPackedStatus();
+    } else if (selectedSortOption === "SORT BY QUANTITY") {
+      handleSortItemsByQuantity();
+    } else if (selectedSortOption === "SORT BY INPUT ORDER") {
+      handleSortItemsByInputOrder();
+    }
+  };
   return (
     <div className={classes.container}>
       <div className={classes.card}>
@@ -37,10 +50,10 @@ const PackingList = ({
         ))}
       </div>
       <div className={classes.filterContainer}>
-        <select className={classes.filter}>
+        <select className={classes.filter} onChange={handleChangeSort}>
           <option>SORT BY INPUT ORDER</option>
           <option>SORT BY PACKED STATUS</option>
-          <option>SORT BY DESCRIPTION</option>
+          <option>SORT BY QUANTITY</option>
         </select>
         <button className={classes.clearButton} onClick={handleClearList}>
           CLEAR LIST

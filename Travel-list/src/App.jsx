@@ -51,6 +51,27 @@ function App() {
     }
   };
 
+  const sortItemsByPackedStatus = () => {
+    const sortedItems = [...items].sort((a, b) => {
+      return a.isItemPacked - b.isItemPacked;
+    });
+    setItems(sortedItems);
+  };
+
+  const sortItemsByQuantity = () => {
+    const sortedItems = [...items].sort((a, b) => {
+      return a.quantity - b.quantity;
+    });
+    setItems(sortedItems);
+  };
+
+  const sortItemsByInputOrder = () => {
+    const sortedItems = [...items].sort((a, b) => {
+      return a.id - b.id;
+    });
+    setItems(sortedItems);
+  };
+
   return (
     <div className="container">
       <Header />
@@ -60,6 +81,9 @@ function App() {
         handleDeleteItem={handleDeleteItem}
         handlePackingStateChange={handlePackingStateChange}
         handleClearList={handleClearList}
+        handleSortItemsByPackedStatus={sortItemsByPackedStatus}
+        handleSortItemsByQuantity={sortItemsByQuantity}
+        handleSortItemsByInputOrder={sortItemsByInputOrder}
       />
       <Stats itemsCount={itemsCount} packedItemsCount={totalPackedItemsCount} />
     </div>
