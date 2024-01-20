@@ -10,6 +10,12 @@ const FormSection = ({ handleAddItem }) => {
     setItemInput("");
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addItem();
+    }
+  };
+
   const addItem = () => {
     const newItem = {
       quantity: quantity,
@@ -38,6 +44,7 @@ const FormSection = ({ handleAddItem }) => {
         placeholder="Enter an item..."
         className={classes.itemInput}
         onChange={(e) => setItemInput(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button className={classes.addButton} onClick={addItem}>
         ADD
