@@ -1,4 +1,3 @@
-// FormSection.jsx
 import { useState } from "react";
 import classes from "./FormSection.module.css";
 
@@ -6,18 +5,19 @@ const FormSection = ({ handleAddItem }) => {
   const [quantity, setQuantity] = useState(1);
   const [itemInput, setItemInput] = useState("");
 
-  const addItem = () => {
-    const newItem = {
-      Quantity: quantity,
-      Item: itemInput,
-    };
-    handleAddItem(newItem);
-    reset();
-  };
-
   const reset = () => {
     setQuantity(1);
     setItemInput("");
+  };
+
+  const addItem = () => {
+    const newItem = {
+      quantity: quantity,
+      item: itemInput,
+      isItemPacked: false,
+    };
+    handleAddItem(newItem);
+    reset();
   };
 
   return (

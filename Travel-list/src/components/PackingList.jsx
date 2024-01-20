@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./PackingList.module.css";
 
-const PackingList = ({ items, deleteItem, handlePackingStateChange }) => {
+const PackingList = ({ items, handleDeleteItem, handlePackingStateChange }) => {
   return (
     <div className={classes.container}>
       <div className={classes.card}>
@@ -15,11 +15,11 @@ const PackingList = ({ items, deleteItem, handlePackingStateChange }) => {
             />
             <div className={classes.cardcontent}>
               <h3>
-                {item.Quantity} {item.Item}
+                {item.quantity} {item.item}
               </h3>
               <button
                 className={classes.cross}
-                onClick={() => deleteItem(index)}
+                onClick={() => handleDeleteItem(index)}
               >
                 ❌
               </button>
