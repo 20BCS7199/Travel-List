@@ -1,3 +1,7 @@
+:root {
+  --input-backgroud-color: #fde39b;
+}
+
 .form {
   display: flex;
   justify-content: center;
@@ -8,25 +12,28 @@
 }
 
 .title {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-family: "Tahoma", sans-serif;
 }
 
 .itemCountContainer {
-  background-color: bisque;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background-color: var(--input-backgroud-color);
+}
+
+.itemCountContainer select {
   border: none;
   outline: none;
-  padding: 7px;
-  width: 60px;
-  border-radius: 20px;
+  background-color: transparent;
 }
 
 .itemInput {
-  background-color: bisque;
+  background-color: var(--input-backgroud-color);
   border: none;
   outline: none;
   padding: 7px 10px;
-  width: 80px;
+  width: 120px;
   border-radius: 20px;
 }
 
@@ -36,5 +43,6 @@
   padding: 7px;
   border-radius: 20px;
   width: 60px;
-  font-weight: bold;
+  font-weight: 600;
+  color: rgb(45, 42, 42);
 }
