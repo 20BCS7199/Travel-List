@@ -1,0 +1,54 @@
+.container {
+  background-color: rgb(42, 2, 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 30px 100px;
+}
+
+.card {
+  display: flex;
+  gap: 50px;
+}
+
+.cardlabel {
+  display: flex;
+}
+
+.cardcontent {
+  padding-left: 15px;
+  display: flex;
+}
+
+.checkbox {
+  transform: scale(1.5);
+}
+
+h3 {
+  color: bisque;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-right: 10px;
+}
+
+.cross {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.filter,
+.clearButton {
+  background-color: bisque;
+  border-radius: 20px;
+  outline: none;
+  padding: 6px;
+  color: brown;
+  font-weight: bold;
+}

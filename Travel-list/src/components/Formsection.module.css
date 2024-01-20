@@ -12,9 +12,10 @@
   font-weight: bold;
 }
 
-.selector {
+.itemCountContainer {
   background-color: bisque;
   border: none;
+  outline: none;
   padding: 7px;
   width: 60px;
   border-radius: 20px;
@@ -23,8 +24,9 @@
 .itemInput {
   background-color: bisque;
   border: none;
-  padding: 7px;
-  width: 100px;
+  outline: none;
+  padding: 7px 10px;
+  width: 80px;
   border-radius: 20px;
 }
 
