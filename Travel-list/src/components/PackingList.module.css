@@ -21,12 +21,16 @@
 }
 
 .cardcontent {
-  padding-left: 15px;
   display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
-.checkbox {
-  transform: scale(1.5);
+h3 {
+  font-size: 14px;
+  color: bisque;
+  font-weight: 500;
+  font-family: "Tahoma", sans-serif;
 }
 
 h3 {
@@ -37,6 +41,7 @@ h3 {
 
 .cross {
   background: none;
+  font-size: 11px;
   border: none;
   cursor: pointer;
 }
