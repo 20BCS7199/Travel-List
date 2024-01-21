@@ -41,7 +41,7 @@ const PackingList = ({
               </h3>
               <button
                 className={classes.cross}
-                onClick={() => handleDeleteItem(index)}
+                onClick={() => handleDeleteItem(item.id)}
               >
                 ❌
               </button>
@@ -50,11 +50,17 @@ const PackingList = ({
         ))}
       </div>
       <div className={classes.filterContainer}>
-        <select className={classes.filter} onChange={handleChangeSort}>
-          <option>SORT BY INPUT ORDER</option>
-          <option>SORT BY PACKED STATUS</option>
-          <option>SORT BY QUANTITY</option>
-        </select>
+        <div className={classes.orderSelectDropdownContainer}>
+          <select
+            className={classes.filter}
+            onChange={handleChangeSort}
+            id="sortOption"
+          >
+            <option>SORT BY INPUT ORDER</option>
+            <option>SORT BY PACKED STATUS</option>
+            <option>SORT BY QUANTITY</option>
+          </select>
+        </div>
         <button className={classes.clearButton} onClick={handleClearList}>
           CLEAR LIST
         </button>

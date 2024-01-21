@@ -1,10 +1,14 @@
+:root {
+  --input-backgroud-color: #fde39b;
+}
+
 .container {
-  background-color: rgb(42, 2, 2);
+  background-color: #3b281c;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  padding: 30px 100px;
+  padding: 30px 100px 16px 100px;
 }
 
 .card {
@@ -17,12 +21,16 @@
 }
 
 .cardcontent {
-  padding-left: 15px;
   display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
-.checkbox {
-  transform: scale(1.5);
+h3 {
+  font-size: 14px;
+  color: bisque;
+  font-weight: 500;
+  font-family: "Tahoma", sans-serif;
 }
 
 h3 {
@@ -33,6 +41,7 @@ h3 {
 
 .cross {
   background: none;
+  font-size: 11px;
   border: none;
   cursor: pointer;
 }
@@ -43,12 +52,34 @@ h3 {
   gap: 20px;
 }
 
-.filter,
+.orderSelectDropdownContainer select {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.orderSelectDropdownContainer,
 .clearButton {
-  background-color: bisque;
+  font-size: 10px;
+  background-color: var(--input-backgroud-color);
   border-radius: 20px;
   outline: none;
-  padding: 6px;
-  color: brown;
-  font-weight: bold;
+  border: none;
+  padding: 8px 12px;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.orderSelectDropdownContainer:hover,
+.clearButton:hover {
+  background-color: #ecd38f;
+}
+
+.orderSelectDropdownContainer:active,
+.clearButton:active {
+  background-color: #ead8a6;
 }

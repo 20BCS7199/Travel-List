@@ -10,6 +10,12 @@ const FormSection = ({ handleAddItem }) => {
     setItemInput("");
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addItem();
+    }
+  };
+
   const addItem = () => {
     const newItem = {
       quantity: quantity,
@@ -23,26 +29,25 @@ const FormSection = ({ handleAddItem }) => {
   return (
     <div className={classes.form}>
       <p className={classes.title}>What do you need for your 😍 trip?</p>
-      <select
-        className={classes.itemCountContainer}
-        value={quantity}
-        onChange={(e) => setQuantity(e.target.value)}
-      >
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-          <option key={num} value={num}>
-            {num}
-          </option>
-        ))}
-      </select>
+      <div className={classes.itemCountContainer}>
+        <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+          {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+            <option key={num} value={num}>
+              {num}
+            </option>
+          ))}
+        </select>
+      </div>
       <input
         type="text"
         value={itemInput}
-        placeholder="Item..."
+        placeholder="Enter an item..."
         className={classes.itemInput}
         onChange={(e) => setItemInput(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button className={classes.addButton} onClick={addItem}>
-        Add
+        ADD
       </button>
     </div>
   );

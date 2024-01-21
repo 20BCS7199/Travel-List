@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "./App.css";
+import _ from "lodash";
+import { useState } from "react";
 import FormSection from "./components/FormSection";
 import Header from "./components/Header";
 import PackingList from "./components/PackingList";
@@ -11,12 +12,23 @@ function App() {
   const itemsCount = items.length;
 
   const handleAddItem = (newItem) => {
-    setItems([...items, { ...newItem, id }]);
+    const updatedItems = [...items, { ...newItem, id }];
+    const sortOption = document.getElementById("sortOption").value;
+
+    if (sortOption === "SORT BY PACKED STATUS") {
+      updatedItems.sort((a, b) => a.isItemPacked - b.isItemPacked);
+    } else if (sortOption === "SORT BY QUANTITY") {
+      updatedItems.sort((a, b) => a.quantity - b.quantity);
+    } else if (sortOption === "SORT BY INPUT ORDER") {
+      updatedItems.sort((a, b) => a.id - b.id);
+    }
+
+    setItems(updatedItems);
     id++;
   };
 
   const handleDeleteItem = (id) => {
-    const index = items[id];
+    const index = _.findIndex(items, { id });
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);

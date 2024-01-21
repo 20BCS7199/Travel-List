@@ -1,6 +1,19 @@
-.header {
-  background-color: rgba(184, 135, 11, 0.888);
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 400;
+  background-color: #eb861a;
   padding: 20px;
+  word-spacing: 12px;
   text-align: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Monoton", sans-serif;
+}
+
+.bagName {
+  position: relative;
+  bottom: 4px;
 }
