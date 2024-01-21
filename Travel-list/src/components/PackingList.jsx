@@ -51,7 +51,11 @@ const PackingList = ({
       </div>
       <div className={classes.filterContainer}>
         <div className={classes.orderSelectDropdownContainer}>
-          <select className={classes.filter} onChange={handleChangeSort}>
+          <select
+            className={classes.filter}
+            onChange={handleChangeSort}
+            id="sortOption"
+          >
             <option>SORT BY INPUT ORDER</option>
             <option>SORT BY PACKED STATUS</option>
             <option>SORT BY QUANTITY</option>
